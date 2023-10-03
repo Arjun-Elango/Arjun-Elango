@@ -1,0 +1,25 @@
+int gassensor=A1;
+int buzzer=13;
+void setup()
+{
+  pinMode(A1,INPUT);
+  pinMode(buzzer,OUTPUT);
+  Serial.begin(9400);
+}
+void loop()
+{
+  int sensorValue=analogRead(gassensor);
+  Serial.println("GAS LEVEL");
+  Serial.println(sensorValue);
+  delay(1000);
+  if(sensorValue>250)
+  {
+    digitalWrite(buzzer,HIGH);
+  }
+  else
+  {
+    digitalWrite(buzzer,LOW);
+  }
+}
+
+  
